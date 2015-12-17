@@ -1,0 +1,89 @@
+<div ng-cloak>
+    <div class="row">
+
+        <div class="col-md-8">
+
+
+
+            <div ng-switch="isAuthenticated()">
+                <div class="alert alert-success" ng-switch-when="true">
+                    You are logged in as user "{{account.login}}".
+                </div>
+
+                <div ng-switch-when="false">
+                    <div>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <h1>UAA Form</h1>
+
+
+                                <div class="alert alert-danger" ng-show="error">
+                                    <strong>{{errorMessage}}</strong> Please check your credentials and try again.
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-8 col-md-offset-2">
+                                <form ng-show="!success" name="form" role="form" novalidate ng-submit="validateuaacredentials()" show-validation>
+
+
+                                    <div class="form-group">
+                                        <label>UAA Server URL:</label>
+                                        <input class="form-control" value="http://localhost:8080/uaa/" placeholder="http://localhost:8080/uaa/" ng-model="uaa.url">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Client:</label>
+                                        <input class="form-control" placeholder="app" ng-model="uaa.clientId">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Client Secret:</label>
+                                        <input class="form-control" placeholder="appclientsecret" ng-model="uaa.clientSecret">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>UserName:</label>
+                                        <input class="form-control" placeholder="marissa" ng-model="uaa.username">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password:</label>
+                                        <input class="form-control" placeholder="koala" ng-model="uaa.password">
+
+                                    </div>
+
+
+
+                                    <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Validate Credintials</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+            </div>
+
+            <p>
+                If you have any question on UAA:
+            </p>
+
+            <ul>
+                <li><a href="https://github.com/cloudfoundry/uaa/" target="_blank">UAA homepage</a></li>
+                <li><a href="https://github.com/cloudfoundry/uaa/blob/master/docs/UAA-APIs.rst" target="_blank">UAA Docs</a></li>
+                <li><a href="https://github.com/cloudfoundry/uaa/issues" target="_blank">UAA Issues on Github</a></li>
+
+            </ul>
+
+            <p>
+             <span>If you like UAA UI, don't forget to give us a star on </span>&nbsp;<a href="https://github.com/svennela/UAA_UI" target="_blank">Github</a>!
+            </p>
+        </div>
+    </div>
+</div>
